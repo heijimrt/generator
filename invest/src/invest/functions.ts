@@ -1,21 +1,30 @@
-function getImport(feature: any) {
-  if (feature === 'base-page') {
-      return `import { BasePage } from 'bridge';`;
+function getImport(artifacts: any, key: string) {
+  const item: any = findByKey(artifacts, key);
+  if (item.configs.value.key === 'base-page') {
+    return `import { BasePage } from 'bridge';`;
   }
 }
 
-function getExtends(feature: any) {
-  if (feature === 'base-page') {
+function getExtends(artifacts: any) {
+  if (artifacts === 'base-page') {
     return ``;
   }
 }
 
-function getMethod(feature: any) {
-  if (feature === 'base-page') {
+function getMethod(artifacts: any, key: string) {
+  const item: any = findByKey(artifacts, key);
+  if (item.configs.value.key === 'base-page') {
     return `protected setNavBarTitle() {
       // todo
     }`;
   }
+}
+
+function findByKey(data: any[], key: string) {
+  return data.find(
+    (item) => {
+      return item.type === key;
+    });
 }
 
 export { getImport, getExtends, getMethod };

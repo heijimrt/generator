@@ -1,5 +1,5 @@
 export interface Schema {
-    name: string;
+    type: string;
     flat: any;
     path: any;
     pages: any;

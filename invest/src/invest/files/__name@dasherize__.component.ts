@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-<%= getImport(feature) %>
+<%= getImport(artifacts, 'component') %>
 
 @Component({
     selector: '<%= dasherize(name) %>',
@@ -7,5 +7,5 @@ import { Component } from '@angular/core';
     styleUrls: [ './<%= dasherize(name) %>.component.scss' ]
 })
 export class <%= classify(name) %>Component {
-    <%= getMethod(feature) %>
+    <%= getMethod(artifacts, 'component') %>
 }
